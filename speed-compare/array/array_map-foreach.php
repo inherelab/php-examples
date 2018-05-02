@@ -1,5 +1,5 @@
 <?php
-require dirname(__DIR__) . '/autoload.php';
+require dirname(__DIR__, 2) . '/autoload.php';
 
 $times = isset($argv[1]) ? (int)$argv[1] : 1000;
 

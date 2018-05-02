@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__DIR__) . '/autoload.php';
+require dirname(__DIR__, 2) . '/autoload.php';
 
 $times = isset($argv[1]) ? (int)$argv[1] : 1000;
 
@@ -9,8 +9,9 @@ $str = '/50be3774f6/{arg1}/arg2/arg3/{int}/arg5/arg6/{arg7}/arg8/arg9[/850726135
 $sample1 = function ($route, array $params) {
     $new = '';
     $matches = [];
+    $nodes = explode('{', $route);
 
-    foreach (explode('{', $route) as $k => $item) {
+    foreach ($nodes as $k => $item) {
         if ($k === 0) {
             $new .= $item;
             continue;
